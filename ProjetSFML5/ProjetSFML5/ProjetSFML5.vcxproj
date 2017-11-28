@@ -64,7 +64,7 @@
     </Link>
     <PostBuildEvent>
       <Command>xcopy /d /y $(SFML_ROOT)\bin\Debug\*.* "..\Debug\"</Command>
-    </PostBuildEvent>	
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -85,16 +85,20 @@
     </Link>
     <PostBuildEvent>
       <Command>xcopy /d /y $(SFML_ROOT)\bin\Release\*.* "..\Release\"</Command>
-    </PostBuildEvent>	
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="LottoCanServeur.cpp" />
+    <ClCompile Include="LottoQcServeur.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Testeur.cpp" />
+    <ClCompile Include="Terminal.cpp" />
+    <ClCompile Include="Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Game.h" />
-    <ClInclude Include="Testeur.h" />
+    <ClInclude Include="LottoCanServeur.h" />
+    <ClInclude Include="LottoQcServeur.h" />
+    <ClInclude Include="Terminal.h" />
+    <ClInclude Include="Timer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
