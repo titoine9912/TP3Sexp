@@ -26,6 +26,7 @@ using namespace sf;
 		void selectionner();
 		void deSelectionner();
 		bool touche(const Vector2i& position);
+		void ChangeTextboxColor(Color color);
 		String getTexte() const;
 
 	private:

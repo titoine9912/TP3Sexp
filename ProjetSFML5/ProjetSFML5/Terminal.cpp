@@ -38,7 +38,18 @@ bool Terminal::init()
 		return false;
 	}
 
-	poutine.init(400, 200, Vector2f(650, 240), font);
+	poutine.init(400, 200, Vector2f(230, 100), font);
+	valider.init(400, 200, Vector2f(1050, 100), font);
+	poutine.insererTexte("poutine");
+	valider.insererTexte("valider");
+	validation.setFont(font);
+	validation.setColor(Color::White);
+	validation.setPosition(1000, 10);
+	validation.setString("valider");
+	ChoixJeu.setFont(font);
+	ChoixJeu.setColor(Color::White);
+	ChoixJeu.setPosition(120, 10);
+	ChoixJeu.setString("Choisir un jeu");
 	return true;
 }
 
@@ -52,6 +63,40 @@ void Terminal::getInputs()
 		{
 			mainWin.close();
 		}
+
+		if (poutine.touche(Mouse::getPosition(mainWin)))
+		{
+			poutine.selectionner();
+			valider.deSelectionner();
+			poutine.ChangeTextboxColor(Color::Green);
+		}
+
+		if (valider.touche(Mouse::getPosition(mainWin)))
+		{
+			valider.selectionner();
+			poutine.deSelectionner();
+			valider.ChangeTextboxColor(Color::Green);
+	    }
+		else
+		{
+			poutine.deSelectionner();
+			valider.deSelectionner();
+			poutine.ChangeTextboxColor(Color::White);
+			valider.ChangeTextboxColor(Color::White);
+		}
+
+		if (event.type == Event::MouseButtonPressed)
+		{
+			if (poutine.touche(Mouse::getPosition(mainWin)))
+			{
+				
+			}
+
+			if (valider.touche(Mouse::getPosition(mainWin)))
+			{
+
+			}
+		}
 	}
 }
 
@@ -64,6 +109,10 @@ void Terminal::draw()
 {
 	//Toujours important d'effacer l'écran précédent
 	mainWin.clear();
-
+	mainWin.draw(ChoixJeu);
+	mainWin.draw(validation);
+	valider.dessiner(&mainWin);
+	poutine.dessiner(&mainWin);
 	mainWin.display();
+
 }

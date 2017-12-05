@@ -18,8 +18,11 @@ private:
 	const int LARGEUR = 1280;
 	const int HAUTEUR = 720;
 	sf::Text ChoixJeu;
+	sf::Text validation;
 	Textbox poutine;
+	Textbox valider;
 	Font font;
+	bool active = false;
 	bool init();
 	void getInputs();
 	void update();

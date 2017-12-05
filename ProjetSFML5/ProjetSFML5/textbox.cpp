@@ -76,7 +76,7 @@ void Textbox::initInfo(const Vector2f position, const Font& font, const bool est
 /// </summary>
 void Textbox::selectionner()
 {
-	boite.setOutlineColor(Color::Yellow);
+	boite.setOutlineColor(Color::Green);
 }
 
 void Textbox::deSelectionner()
@@ -104,7 +104,10 @@ String Textbox::getTexte() const
 {
 	return texte.getString();
 }
-
+void Textbox::ChangeTextboxColor(Color color)
+{
+	texte.setFillColor(color);
+}
 /// <summary>
 /// Le texte est inséré et remplace le précédent.
 /// </summary>
