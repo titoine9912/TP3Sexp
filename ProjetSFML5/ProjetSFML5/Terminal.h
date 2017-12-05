@@ -4,7 +4,7 @@
 #include <string.h>
 class Terminal
 {
-
+//modification
 public:
 	Terminal();
 	int run();
