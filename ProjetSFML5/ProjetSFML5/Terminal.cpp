@@ -68,22 +68,24 @@ void Terminal::getInputs()
 		{
 			poutine.selectionner();
 			valider.deSelectionner();
+			valider.ChangeTextboxColor(Color::White);
 			poutine.ChangeTextboxColor(Color::Green);
 		}
 
 		if (valider.touche(Mouse::getPosition(mainWin)))
-		{
+		{ 
 			valider.selectionner();
 			poutine.deSelectionner();
+			poutine.ChangeTextboxColor(Color::White);
 			valider.ChangeTextboxColor(Color::Green);
 	    }
-		else
-		{
-			poutine.deSelectionner();
-			valider.deSelectionner();
-			poutine.ChangeTextboxColor(Color::White);
-			valider.ChangeTextboxColor(Color::White);
-		}
+		//else
+		//{
+		//	poutine.deSelectionner();
+		//	valider.deSelectionner();
+		//	poutine.ChangeTextboxColor(Color::White);
+		//	valider.ChangeTextboxColor(Color::White);
+		//}
 
 		if (event.type == Event::MouseButtonPressed)
 		{
