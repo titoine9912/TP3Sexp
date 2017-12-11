@@ -3,5 +3,5 @@
 int main()
 {
 	Terminal terminal;
-	return terminal.run();
+	return terminal.Run();
 }

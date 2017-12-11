@@ -8,3 +8,12 @@ public:
 	static int semaphore;
 	static std::string message;
 };
+
+enum semaphoreState
+{
+	notInUse,
+	inUseByTerminal,
+	inUseByServer,
+	toReadByTerminal,
+	toReadByServer
+};
