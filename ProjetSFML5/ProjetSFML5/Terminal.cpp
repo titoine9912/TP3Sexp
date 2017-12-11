@@ -46,6 +46,10 @@ int Terminal::Run()
 		getInputs();
 		update();
 		draw();
+		if (listeDesBilletsAcheter.front() == "99")
+		{
+			return false;
+		}
 	}
 
 	return EXIT_SUCCESS;
@@ -173,22 +177,30 @@ void Terminal::getInputs()
 			if (poutine.touche(Mouse::getPosition(mainWin)))
 			{
 				callingPoutine = true;
+				listeDesBilletsAcheter.push("billetPoutine");
 			}
 			if (uber.touche(Mouse::getPosition(mainWin)))
 			{
 				callingUber = true;
+				listeDesBilletsAcheter.push("billetUber");
 			}
 			if (agent007.touche(Mouse::getPosition(mainWin)))
 			{
 				callingAgent007 = true;
+				listeDesBilletsAcheter.push("billetAgent007");
 			}
 			if (valider.touche(Mouse::getPosition(mainWin)))
 			{
 				//TODO
+				callingValider = true;
 			}
-			if (agent007.touche(Mouse::getPosition(mainWin)))
+			if (fin.touche(Mouse::getPosition(mainWin)))
 			{
-				callingAgent007 = true;
+				callingFin = true;
+			}
+			if (prochainTirage.touche(Mouse::getPosition(mainWin)))
+			{
+				callingProchainTirage = true;
 			}
 		}
 #pragma endregion
@@ -201,6 +213,23 @@ void Terminal::update()
 	{
 		//TODO
 		//save new lotto
+	}
+
+	if (callingValider)
+	{
+		listeDesBilletsAcheter.push("22");
+		callingValider = false;
+	}
+
+	if (callingFin)
+	{
+		listeDesBilletsAcheter.push("99");
+		callingFin = false;
+	}
+
+	if (callingProchainTirage)
+	{
+		listeDesBilletsAcheter.push("66");
 	}
 
 	if (callingPoutine)

@@ -3,6 +3,7 @@
 #include "textbox.h"
 #include "Exchange.h"
 #include <string.h>
+#include <queue>
 class Terminal
 {
 	//modification
@@ -13,6 +14,7 @@ private:
 	const int LARGEUR = 1280;
 	const int HAUTEUR = 720;
 
+	std::queue<std::string> listeDesBilletsAcheter;
 	Exchange semaphore;
 	sf::Text choixJeu;
 	sf::Text validation;
@@ -31,6 +33,9 @@ private:
 	bool callingPoutine;
 	bool callingUber;
 	bool callingAgent007;
+	bool callingFin=false;
+	bool callingProchainTirage = false;
+	bool callingValider = false;
 	int bank = 100;
 	bool init();
 
